@@ -3,12 +3,6 @@ class Dog
   attr_accessor :name, :breed
   attr_reader :id
   
-  @@all = []
-  
-  def self.all
-    @@all
-  end
-  
   def initialize(hash)
     @id = hash[:id]
     @name = hash[:name]
@@ -67,6 +61,10 @@ class Dog
     else
       self.create(name: name,breed: breed)
     end
+  end
+  
+  def self.find_by_name(name)
+    dog = DB[:conn].execute("")
   end
   
 end
