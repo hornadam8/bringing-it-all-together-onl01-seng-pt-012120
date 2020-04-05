@@ -3,10 +3,17 @@ class Dog
   attr_accessor :name, :breed
   attr_reader :id
   
+  @@all = []
+  
+  def self.all
+    @@all
+  end
+  
   def initialize(hash)
     @id = hash[:id]
     @name = hash[:name]
     @breed = hash[:breed]
+    
   end
   
   def self.create_table
@@ -53,6 +60,7 @@ class Dog
     self.new_from_db(DB[:conn].execute("SELECT * FROM dogs WHERE id = ?",i)[0])
   end
     
-  
+  def self.find_or_create_by(name:"",breed:"")
+    
   
 end
